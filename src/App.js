@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import moment from 'moment';
 
 function App() {
+  let enddate = moment("2023-04-01").format('YYYY-MM-DD');
+  let today = moment().format('YYYY-MM-DD');
+
+  let daysleft = moment(enddate).diff(moment(today), 'days');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <div className="title" style={{ padding: "50px" }}>
+          Countdown huis
+        </div>
+
+        <div className="number"> {daysleft}</div>
+       
+        <div className="label">dagen</div>
+      </div>
   );
 }
 
